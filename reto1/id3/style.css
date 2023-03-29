@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+
+*{
+    background-color: yellow;
+    font-family: 'Comic Neue', cursive;
+    text-align: center;
+}
+.titulo{
+    color:darkred;
+    text-align:center;
+    font-size: 4em;
+}
+.portada {
+    width: 50%;
+}
+.portada:hover{
+    opacity: 50%;    
+}
+h2{
+    padding:50px;     
+}
+h4, p{
+    display: inline-block;
+    width: 600px;
+    margin-left: 450px;
+    text-align: center;
+}
+.iUno, .iDos, .iTres, .iCuatro, .iCinco {
+    width: 8%;
+    height: 8%;
+    display: inline;
+    box-align:center;
+}
+.iUno:hover, .iDos:hover, .iTres:hover, .iCuatro:hover, .iCinco:hover{
+    width: 20%;
+    height: 20%;
+    border-color: blueviolet;
+    border-width: 5px;
+    border-style: solid;
+}
+.formulario{
+    padding:50px;
+    display:block-inline;
+    box-align:justify;
+    width:100%;
+}
+.redes{
+    padding:50px;
+}
+.sol2{
+    background-color: darkviolet;
+    color: white;
+    font-size: 14px;
+    display: block;
+    text-align: center;
+    box-shadow: 2px -2px 5px red;
+}
