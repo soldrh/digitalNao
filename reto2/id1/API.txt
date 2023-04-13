@@ -1,0 +1,64 @@
+API específicas del producto
+Vistas
+Las API de Elsevier implementan un concepto que llamamos "VIEW". Enviado como parámetro, un VIEW se utiliza para entregar metadatos específicos en la carga útil de una API. Algunas VISTAS están restringidas en función del estado de suscripción a un producto de Elsevier. Algunas API no utilizan el parámetro VIEW. Las VISTAS, cuando corresponda, se documentan a continuación. Puede ver los metadatos disponibles para una VISTA haciendo clic en el enlace [Vistas] de una API determinada.
+
+
+API de recuperación de artículos (texto completo)
+Esto representa la recuperación del artículo de texto completo. Los artículos de texto completo también pueden tener enlaces a una representación abstracta de Scopus del recurso. El artículo también incluye enlaces a objetos relacionados. El texto de estos artículos está disponible para su búsqueda mediante el uso de la API de búsqueda de ScienceDirect.
+
+
+
+El formato nativo del texto del artículo es XML y mientras que partes de él se pueden traducir para JSON, la complejidad del marcado impide que el texto completo sea preciso representado en formato JSON.
+
+
+El esquema principal para el elemento 'xocs:doc' del artículo completo se puede encontrar en https://schema.elsevier.com/dtds/document/fulltext/xcr/xocs-article.xsd. Otros esquemas de soporte se pueden encontrar en https://schema.elsevier.com/dtds/document/fulltext/xcr/.
+
+¿Cuántos datos puedo recuperar con mi APIKey?
+Cada clave de API viene con la capacidad de ejecutar un cierto número de solicitudes de datos de las API. Cuotas, es decir, el número de solicitudes ejecutadas, se restablecen cada siete días. Puede ver las cuotas y las tasas de limitación de nuestro conjunto de API a continuación. Los límites de cuota son únicos para cada API, no hay una sola configuración global para un APIKey determinado. Si usted Si encuentra que la cuota de una API en particular no es suficiente para las necesidades de su proyecto, escriba Soporte de API con:
+
+
+su clave de API
+Nombre completo de la institución
+Una breve descripción de su caso de uso
+Nombre de la API y aumento de cuota solicitado
+
+Además, el acceso a las API especializadas no está habilitado de forma predeterminada, ya que los casos de uso de las API especializadas requieren revisión. del equipo de soporte de API de Elsevier. API Support no puede garantizar el permiso para usar API de acceso controlado. El Las API de acceso controlado incluyen:
+
+
+Descripción general de Scopus Citation
+Comentarios del autor de Scopus
+Derecho de texto completo de ScienceDirect
+Permisos de alojamiento de artículos de ScienceDirect
+Informe de ScienceDirect Holdings
+Búsqueda y recuperación de Embase
+Búsqueda y recuperación de aldeas de ingeniería
+Geofacets API
+Pharmapendium API
+SUSHI COP5 API
+
+Si desea solicitar acceso a una de estas API de acceso controlado, escriba Soporte de API con el La siguiente información:
+
+
+su clave de API
+Nombre completo de la institución
+Una breve descripción de su caso de uso
+Nombre de la API y aumento de cuota solicitado
+
+¿Cómo verifico mi cuota?
+Puede consultar los siguientes encabezados de respuesta para comprobar su cuota:
+
+Revise la cuota con los siguientes encabezados de respuesta:
+
+X-RateLimit-Limit       <----Shows API quota setting
+X-RateLimit-Remaining   <----Shows API remaining quota
+X-RateLimit-Reset       1234567891 <----Date/Time in Epoch seconds when API quota resets
+¿Qué debo hacer cuando recibo un error http 429 DEMASIADAS solicitudes?
+Hay dos razones posibles por las que está experimentando un error 429. Si se supera la cuota, X-RateLimit-Limit y X-RateLimit-Remaining no vuelve. En su lugar, las API entregan un mensaje http 429 DEMASIADAS SOLICITUDES, junto con el siguientes encabezados de respuesta:
+
+X-ELS-Status            QUOTA_EXCEEDED - Quota Exceeded
+X-RateLimit-Reset       1234567891 <----Date/Time in Epoch seconds
+Alternativamente, si las solicitudes superan la tasa de limitación, las API también devuelven un mensaje http 429 DEMASIADAS SOLICITUDES
+
+Las tasas de limitación se enumeran en la tabla siguiente en la columna solicitudes/segundo. Si las solicitudes superan el tasa de limitación, las API también devuelven un http 429 TOO MANY REQUESTS msg
+
+
